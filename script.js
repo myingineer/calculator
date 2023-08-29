@@ -3,6 +3,7 @@ const buttons = document.getElementsByClassName("button");
 
 // Turning the toggle buttons to an array to enable looping
 const arr = [...buttons];
+
 // Calling the main Container
 const container = document.querySelector('.main-container');
 
@@ -17,7 +18,23 @@ const allNumbers = document.querySelectorAll('.number');
 const operations = document.querySelectorAll('.operation');
 
 // The display on screen as you type
-let calculation = '';
+// let calculation = '';
+// To use local storage, we give it two things
+// -- The name we want to use to access it as a string
+// -- The thing we want to save inside the local storage
+
+
+// Using local storage to save the current calculation
+// The get item takes the name we gave the calculation in localStorage
+let calculation = localStorage.getItem('calculation');
+
+// This is to check if the LocalStorage is null i.e there is nothing in localStorage, if it is, we make it equal to the default value which is an empty string
+if (calculation === null) {
+    calculation = '';
+};
+
+// After Using local storage, allowing the previous calculation to show on page load
+calculationDisplay.innerText = calculation;
 
 // Getting the equal-to btn
 const equalTo = document.querySelector('#equal-to');
@@ -36,6 +53,7 @@ allNumbers.forEach(number => {
     number.addEventListener('click', () => {
         calculation += number.innerText;
         calculationDisplay.innerText = calculation;
+        localStorage.setItem('calculation', calculation);
     });
 });
 
@@ -60,9 +78,11 @@ function changeColor2(color1, color2, color3, color4, color5, color6) {
 // Concatenating the operation sign
 operations.forEach(sign => {
     sign.addEventListener('click', () => {
-        let calc = '' + sign.innerText + '';
+        // Updated here to give space in the left and right of each operation symbol
+        let calc = ` ${sign.innerText} `;
         calculation += calc;
         calculationDisplay.innerText = calculation;
+        localStorage.setItem('calculation', calculation);
     });
 });
 
@@ -73,7 +93,7 @@ equalTo.addEventListener('click', () => {
     } else {
         let solved = eval(calculation);
         calculationDisplay.innerText = solved;
-        calculation = '';
+        calculation = solved;
     };
 });
 
@@ -81,6 +101,7 @@ equalTo.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     calculation = '';
     calculationDisplay.innerText = '';
+    localStorage.removeItem('calculation');
 });
 
 // Making the delete button work
