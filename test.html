@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>tri-state toggle</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            height: 30px;
+            width: 30px;
+            appearance: none;
+            background-color: black;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        input:hover {
+            cursor: pointer;
+        }
+        .tri-state-toggle {
+            display: flex;
+            justify-content: center;
+            border: 3px solid black;
+            border-radius: 50px;
+        }
+        #one {
+            opacity: 1;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="tri-state-toggle">
+      <input class="button" type="radio" name="toggle" id="one" />
+      <input class="button" type="radio" name="toggle" id="two" />
+      <input class="button" type="radio" name="toggle" id="three" />
+    </div>
+  </body>
+  <script>
+    let buttons = document.getElementsByClassName("button");
+    let arr = [...buttons];
+
+    arr.forEach((element, index) => {
+        element.addEventListener("click", () => {
+            element.style.opacity = "1";
+            if (index == 0) {
+            document.getElementsByTagName("body")[0].style.backgroundColor = "";
+            } else if (index == 1) {
+            document.getElementsByTagName("body")[0].style.backgroundColor = "teal";
+            } else {
+            document.getElementsByTagName("body")[0].style.backgroundColor =
+                "rgb(92, 204, 125)";
+            }
+            arr
+            .filter(function (item) {
+                return item != element;
+            })
+            .forEach((item) => {
+                item.style.opacity = "0";
+            });
+        });
+    });
+
+  </script>
+</html>

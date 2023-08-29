@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'League Spartan', sans-serif;
+    padding: 15px;
+    background-color: hsl(222, 26%, 31%);
+}
+
+.main-container {
+    border: 0.2px solid gainsboro;
+    padding: 15px;
+    max-width: 300px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: hsl(221, 14%, 31%);
+}
+
+.theme {
+    font-size: 10px;
+}
+
+.container-with-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 700;
+    color: white;
+}
+
+.theme {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-button-container {
+    display: flex;
+    align-items: baseline;
+    border-radius: 40px;
+    padding: 0 2px 5px 2px;
+}
+
+.toggle-house {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+}
+
+input {
+    height: 20px;
+    width: 20px;
+    appearance: none;
+    background-color: hsl(6, 63%, 50%);
+    border-radius: 100%;
+    opacity: 0;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+#one {
+    opacity: 1;
+}
+
+.calculation-display {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: hsl(224, 36%, 15%);
+    color: white;
+    font-weight: 700;
+    min-height: 20px;
+}
+
+h1 {
+    font-size: 1.7em;
+    word-break: break-all;
+}
+
+button {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.all-button {
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.last-two-buttons {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.buttons {
+    background-color: hsl(225, 21%, 49%);
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.red {
+    color: red;
+}
+
+#del-btn {
+    background-color: hsl(225, 39%, 30%);
+    color: white;
+}
+
+.btns {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    background-color: hsl(30, 25%, 89%);
+    box-shadow: 0 8px 12px 0 hsl(28, 16%, 65%);
+    cursor: pointer;
+}
+
+.btn {
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#reset {
+    background-color: hsl(225, 39%, 30%);
+    color: white;
+}
+
+#equal-to {
+    background-color: hsl(6, 63%, 50%);
+    color: white;
+}
+
+.btns:hover {
+    background-color: hsl(30, 25%, 95%);
+}
